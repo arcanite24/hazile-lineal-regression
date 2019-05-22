@@ -37,6 +37,7 @@ error = np.sum(map(lambda x: x ** 2, [y[i] - (b0 + b1 * x[i]) for i in range(n)]
 print('error:', error)
 
 fig, ax = plt.subplots()
+plt.figure(1)
 
 ax.scatter(x, y)
 ax.plot(x, predicted_y, 'r')
@@ -45,4 +46,13 @@ ax.set(xlabel='X', ylabel='Y', title='Ejercicio 2: X vs Y')
 ax.grid()
 
 fig.savefig("ejercicio2_xy.png")
+
+fig_dispesion, ax_dispersion = plt.subplots()
+plt.figure(2)
+ax_dispersion.scatter(x, y)
+
+ax_dispersion.set(xlabel='X', ylabel='Y', title='Dispersion de Puntos')
+ax_dispersion.grid()
+
+fig_dispesion.savefig("ejercicio2_dispersion.png")
 plt.show()

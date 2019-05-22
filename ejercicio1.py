@@ -35,6 +35,7 @@ print('b1:', b1)
 predicted_y = [b0  + b1 * xi for xi in x]
 
 fig, ax = plt.subplots()
+plt.figure(1)
 
 ax.scatter(x, y)
 ax.plot(x, predicted_y, 'r')
@@ -43,4 +44,13 @@ ax.set(xlabel='X', ylabel='Y', title='Ejercicio 1: X vs Y')
 ax.grid()
 
 fig.savefig("ejercicio1_xy.png")
+
+fig_dispesion, ax_dispersion = plt.subplots()
+plt.figure(2)
+ax_dispersion.scatter(x, y)
+
+ax_dispersion.set(xlabel='X', ylabel='Y', title='Dispersion de Puntos')
+ax_dispersion.grid()
+
+fig_dispesion.savefig("ejercicio1_dispersion.png")
 plt.show()
