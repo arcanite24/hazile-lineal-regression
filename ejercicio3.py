@@ -92,5 +92,23 @@ ax_dispersion.scatter(x, y)
 ax_dispersion.set(xlabel='X', ylabel='Y', title='Dispersion de Puntos')
 ax_dispersion.grid()
 
-fig_dispesion.savefig("ejercicio2_dispersion.png")
+fig_dispesion.savefig("ejercicio3_dispersion.png")
+
+# Calcular Y con modificaciones
+log_y = np.log10(y)
+print(log_y)
+
+fig_y, ax_y = plt.subplots()
+plt.figure(3)
+
+ax_y.scatter(x, log_y)
+ax_y.plot(x, predicted_y, 'r')
+
+ax_y.set(xlabel='X', ylabel='Y', title='log10 Y')
+ax_y.grid()
+
+error_y = np.sum(map(lambda x: x ** 2, [yy - (b0 + b1 * x[index]) for index, yy in np.ndenumerate(log_y) if ~np.isnan(yy)]))
+print('error log10y', error_y)
+
+fig_dispesion.savefig("ejercicio3_log10y.png")
 plt.show()
